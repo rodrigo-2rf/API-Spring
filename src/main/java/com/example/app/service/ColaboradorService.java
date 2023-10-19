@@ -3,6 +3,8 @@ package com.example.app.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -26,8 +28,11 @@ public class ColaboradorService {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
     }
 
-    public List<Colaborador> buscarTodosColaboradores(){
-        return colaboradorRepository.findAll();
+    // public List<Colaborador> buscarTodosColaboradores(){
+    //     return colaboradorRepository.findAll();
+    // }
+    public Page<Colaborador> buscarTodosColaboradores(PageRequest page){
+        return colaboradorRepository.findAll(page);
     }
 
     public ResponseEntity<Colaborador> cadastrarColaborador(Colaborador colaborador){
