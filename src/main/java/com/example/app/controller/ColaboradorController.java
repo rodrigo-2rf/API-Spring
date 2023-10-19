@@ -42,7 +42,7 @@ public class ColaboradorController{
 
     @PutMapping("/{id}")
     public ResponseEntity<Colaborador> atualizarColaborador(@PathVariable Long id, @RequestBody Colaborador colaborador){
-        return colaboradorService.atualizarColaborador(colaborador);
+        return colaboradorService.atualizarColaborador(id, colaborador);
     }
 
     @DeleteMapping("/{id}")
