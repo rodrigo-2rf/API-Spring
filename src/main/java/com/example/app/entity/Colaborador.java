@@ -40,4 +40,7 @@ public class Colaborador {
     @OneToMany(mappedBy = "colaborador", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Livro> livros = new HashSet<>();
 
+    // @OneToMany(mappedBy = "colaborador")
+    // private Set<AvaliacaoCurso> avaliacaoCursos;
+
 }

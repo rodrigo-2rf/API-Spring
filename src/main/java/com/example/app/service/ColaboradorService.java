@@ -54,14 +54,13 @@ public class ColaboradorService {
     public ResponseEntity<Colaborador> atualizarColaborador(Long id, Colaborador colaborador){
         if(colaboradorRepository.existsById(id)){
             colaborador.setId(id);
-            For(Livro livro : colaborador.getLivros()){
+            // For(Livro livro : colaborador.getLivros()){
             //     livro.setColaborador(colaborador);
-            }
+            // }
             Colaborador colaboradoresSalvo = colaboradorRepository.save(colaborador);
             return ResponseEntity.status(HttpStatus.CREATED).body(colaboradoresSalvo);
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-        
     }
 
     public ResponseEntity<String> removerEstudante(Long id){
