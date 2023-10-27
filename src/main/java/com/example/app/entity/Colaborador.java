@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -38,9 +40,11 @@ public class Colaborador {
     private Endereco endereco;
 
     @OneToMany(mappedBy = "colaborador", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private Set<Livro> livros = new HashSet<>();
 
-    // @OneToMany(mappedBy = "colaborador")
-    // private Set<AvaliacaoCurso> avaliacaoCursos;
+    @OneToMany(mappedBy = "colaborador")
+    @JsonIgnore
+    private Set<AvaliacaoCurso> avaliacaoCursos;
 
 }
